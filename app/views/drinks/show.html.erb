@@ -1,0 +1,10 @@
+<p>Find me in app/views/pages/home.html.erb</p>
+
+<h2><%= @drink.name %></h2>
+<p><%= @drink.description %></p>
+<p><%= @drink.rating %></p>
+
+<%= link_to "Delete #{@drink.name}",
+            drink_path(@drink),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>

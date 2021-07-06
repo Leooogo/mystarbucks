@@ -1,0 +1,9 @@
+<%= form_for(@drink) do |drink| %>
+  <%= drink.label :name %>
+  <%= drink.text_field :name %>
+  <%= drink.label :description %>
+  <%= drink.text_field :description %>
+  <%= drink.label :rating %>
+  <%= drink.number_field :rating %>
+  <%= drink.submit %>
+<% end %>
