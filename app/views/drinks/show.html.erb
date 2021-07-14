@@ -5,11 +5,17 @@
 <p><%= @drink.size %></p>
 <p><%= @drink.ice %></p>
 <p><%= @drink.flavours %></p>
+<p><%= @drink.milk %></p>
 <p><%= @drink.shot %></p>
 <p><%= @drink.toppings %></p>
 <p><%= @drink.rating %></p>
 
-<%= link_to "Delete #{@drink.name}",
+<%= link_to 'Back', drinks_path %>
+
+<%= link_to "Edit",
+            edit_drink_path(@drink) %>
+
+<%= link_to "Delete",
             drink_path(@drink),
             method: :delete,
             data: { confirm: "Are you sure?" } %>
