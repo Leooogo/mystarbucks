@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
   belongs_to :drink
 
-  validates :content, presence: true
+  validates :rating, presence: true
 end
