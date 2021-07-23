@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_14_203847) do
+ActiveRecord::Schema.define(version: 2021_07_15_060805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2021_07_14_203847) do
     t.string "shot"
     t.string "toppings"
     t.string "milk"
+    t.decimal "rating_cache", default: "0.0"
   end
 
   create_table "reviews", force: :cascade do |t|

@@ -14,6 +14,7 @@
   <% @drink.reviews.each do |review| %>
     <li class="list-group-item">
       <%= review.content %>
+      <%= review.rating %>
       <%= link_to "Remove", 
                   review_path(review),
                   method: :delete,
