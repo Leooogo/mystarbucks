@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-
-  # get "drinks", to: "drinks#index"
+  # get 'edit', to: 'users#edit'
+  
   resources :drinks do
     resources :reviews, only: [ :new, :create]
   end
