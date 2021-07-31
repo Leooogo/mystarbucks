@@ -1,6 +1,9 @@
 class Drink < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_one_attached :photo
+  belongs_to :user
+  has_many :favorite_drinks
+  has_many :favorited_by, through: :favorite_drinks, source: :user
 
   def top_drinks
     @top_drinks = Drink.by_ratings.limit(3)

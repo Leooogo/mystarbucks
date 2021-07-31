@@ -34,3 +34,27 @@
             drink_path(@drink),
             method: :delete,
             data: { confirm: "Are you sure?" } %>
+
+
+
+<% if user_signed_in? %>
+  <%= link_to "Edit",
+      edit_drink_path(@drink) %>
+<% else %>
+  <%= link_to "Edit", new_user_session_path, data: { confirm: "You must log in" } %>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= link_to 'Leave a review', new_drink_review_path(@drink) %>
+<% else %>
+  <%= link_to "Leave a review", new_user_session_path, data: { confirm: "You must log in" } %>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= link_to "Delete",
+              drink_path(@drink),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+  <% else %>
+    <%= link_to "Delete", new_user_session_path, data: { confirm: "You must log in" } %>
+  <% end %>

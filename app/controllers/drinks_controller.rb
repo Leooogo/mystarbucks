@@ -1,6 +1,6 @@
 class DrinksController < ApplicationController
   before_action :set_drink, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
   
   def index
     @drinks = Drink.all
@@ -42,6 +42,19 @@ class DrinksController < ApplicationController
     @drink.destroy
 
     redirect_to drinks_path
+  end
+
+  def favorite
+    type = params[:type]
+    if type == "favorite"
+      current_user.favorites << @drink
+      redirect_to :back, notice: 'You favorited #{@drink.name}'
+    elseif type == 'unfavorite'
+      current_user.favorites.delete(@drink)
+      redirect_to :back, notice: 'Unfavorited #{@drink.name}'
+    else
+      redirect_to :back, notice: 'Nothing happened.'
+    end
   end
 
   private

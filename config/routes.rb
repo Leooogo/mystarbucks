@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # get 'edit', to: 'users#edit'
   
   resources :drinks do
+    put :favorite, on: :member
     resources :reviews, only: [ :new, :create]
   end
   resources :reviews, only: [ :destroy ]
