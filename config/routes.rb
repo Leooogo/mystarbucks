@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     put :favorite, on: :member
     resources :reviews, only: [ :new, :create]
   end
+  
   resources :reviews, only: [ :destroy ]
   
   # resources :users, only: [ ] do
