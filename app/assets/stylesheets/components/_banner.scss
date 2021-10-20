@@ -2,7 +2,14 @@
   background-image: url("../assets/sorin.jpg");
   background-size: cover;
   height: 100vh;
-  color: rgb(0, 99, 65);
   text-align: center;
   padding-top: 5vh;
+
+  h1 {
+    color: #678758;
+  }
+
+  p {
+    color: #E3EEDD;
+  }
 }

@@ -1,16 +1,38 @@
 <div class="home-banner">
   <h1>Grab your own coffee today!</h1>
+  <p>
+    <span id="banner-typed-text"></span>
+  </p>
 </div>
 
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-6">
-      <%= "Lorem ipsum dolor sit amet, consectetur adipisicing elit " * 100 %>
+      <h2 class="text-center">Popular</h2>
+      <div class="cards">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../assets/sorin.jpg)">
+          Espresso Drinks
+        </div>
+
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../assets/sorin.jpg)">
+          Iced Coffee
+        </div>
+
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../assets/sorin.jpg)">
+          Frappuccino Blended Beverages
+        </div>
+      </div>
+      
+
+
+
       <ul>
         <% @drinks.each do |drink| %>
           <li><%= link_to drink.name, drink_path(drink) %></li>
         <% end %>
       </ul>
+
+      
     </div>
   </div>
 </div>
