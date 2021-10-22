@@ -1,13 +1,66 @@
-<h1>Our first view 🚀</h1>
-<ul>
-  <% @drinks.each do |drink| %>
-    <li><%= link_to drink.name, drink_path(drink) %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h2 class="text-center">Popular</h2>
+      <div class="cards">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../assets/sorin.jpg)">
+          Cappuccino
+        </div>
+
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../assets/sorin.jpg)">
+          Iced White Chocolate Mocha
+        </div>
+
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../assets/sorin.jpg)">
+          Cookies & Cream Frappuccino
+        </div>
+      </div>
+
+      <h2 class="text-center">New</h2>
+      <div class="cards">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../assets/sorin.jpg)">
+          Cappuccino
+        </div>
+
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../assets/sorin.jpg)">
+          Iced White Chocolate Mocha
+        </div>
+
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../assets/sorin.jpg)">
+          Cookies & Cream Frappuccino
+        </div>
+      </div>
+      
+      <br>
+      <br>
+      <br>
+      <div class="cards">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../assets/sorin.jpg)">
+          Cappuccino
+        </div>
+
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../assets/sorin.jpg)">
+          Iced White Chocolate Mocha
+        </div>
+
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../assets/sorin.jpg)">
+          Cookies & Cream Frappuccino
+        </div>
+      </div>
 
 
 
-<a href="/drinks/1">Chez Gladines</a>
-<a href="/drinks/2">Le Temps des Cerises</a>
-<a href="/drinks/3">La Tour d'Argent</a>
+      <ul>
+        <% @drinks.each do |drink| %>
+          <li><%= link_to drink.name, drink_path(drink) %></li>
+        <% end %>
+      </ul>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
 
