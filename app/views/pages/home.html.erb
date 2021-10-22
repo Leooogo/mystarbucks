@@ -3,38 +3,8 @@
   <p>
     <span id="banner-typed-text"></span>
   </p>
+  <a class="btn btn-ghost" href="/drinks">Find more</a>
 </div>
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <h2 class="text-center">Popular</h2>
-      <div class="cards">
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../assets/sorin.jpg)">
-          Cappuccino
-        </div>
-
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../assets/sorin.jpg)">
-          Iced White Chocolate Mocha
-        </div>
-
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../assets/sorin.jpg)">
-          Cookies & Cream Frappuccino
-        </div>
-      </div>
-      
-
-
-
-      <ul>
-        <% @drinks.each do |drink| %>
-          <li><%= link_to drink.name, drink_path(drink) %></li>
-        <% end %>
-      </ul>
-
-      
-    </div>
-  </div>
-</div>
 
 
