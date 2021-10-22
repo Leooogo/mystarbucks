@@ -1,17 +1,24 @@
-<h1>Hi there! <%= @user.email %></h1>
-<br>
-<h3>Personal details</h3>
-<%= link_to "Edit", edit_user_registration_path %>
-<br>
-<h5>Email</h5>
-<h3><%= @user.email %></h3>
-<br>
-<h1>Favorites</h1>
+<div class="container">
+  <h3>Hi there! <%= @user.email %></h3>
+  <div id="tabs">
+    <ul class="list-inline tabs-underlined">
+      <li>
+        <a href="#tabs-1" class="tab-underlined active">Personal details</a>
+      </li>
+      <li>
+        <a href="#tabs-2" class="tab-underlined fade">Favorites</a>
+      </li>
+    </ul>
 
-<h3>You have favorited 0 drinks in Starbucks</h3>
+    <div id="tabs-1">
+      <%= link_to "Edit", edit_user_registration_path %>
+      <br>
+      <h5>Email</h5>
+      <h3><%= @user.email %></h3>
+    </div>
 
-
-
-<a href="/drinks/1">Chez Gladines</a>
-<a href="/drinks/2">Le Temps des Cerises</a>
-<a href="/drinks/3">La Tour d'Argent</a>
+    <div id="tabs-2">
+      <h3>You have favorited 0 drinks in Starbucks</h3>
+    </div>
+  </div>
+</div>
