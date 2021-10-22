@@ -1,40 +1,48 @@
-<%= form_for(@drink) do |drink| %>
-  <li>
-    <%= drink.label :name %>
-    <%= drink.text_field :name %>
-  </li>
-  <li>
-    <%= drink.label :description %>
-    <%= drink.text_field :description %>
-  </li>
-  <li>
-    <%= drink.label :size %>
-    <%= drink.text_field :size %>
-  </li>
-  <li>
-    <%= drink.label :ice %>
-    <%= drink.text_field :ice %>
-  </li>
-  <li>
-    <%= drink.label :flavours %>
-    <%= drink.text_field :flavours %>
-  </li>
-  <li>
-    <%= drink.label :milk %>
-    <%= drink.text_field :milk %>
-  </li>
-  <li>
-    <%= drink.label :shot %>
-    <%= drink.text_field :shot %>
-  </li>
-  <li>
-    <%= drink.label :toppings %>
-    <%= drink.text_field :toppings %>
-  </li>
-  <li>
-    <%= drink.label :rating %>
-    <%= drink.number_field :rating %>
-  </li>
-  
-  <%= drink.submit %>
-<% end %>
+<div class="container pt-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4">
+      <h2 class="text-center mb-5">Create your drink</h2>
+      <%= form_for(@drink) do |drink| %>
+        <li>
+          <%= drink.label :name %>
+          <%= drink.text_field :name %>
+        </li>
+        <li>
+          <%= drink.label :description %>
+          <%= drink.text_field :description %>
+        </li>
+        <li>
+          <%= drink.label :size %>
+          <%= drink.text_field :size %>
+        </li>
+        <li>
+          <%= drink.label :ice %>
+          <%= drink.text_field :ice %>
+        </li>
+        <li>
+          <%= drink.label :flavours %>
+          <%= drink.text_field :flavours %>
+        </li>
+        <li>
+          <%= drink.label :milk %>
+          <%= drink.text_field :milk %>
+        </li>
+        <li>
+          <%= drink.label :shot %>
+          <%= drink.text_field :shot %>
+        </li>
+        <li>
+          <%= drink.label :toppings %>
+          <%= drink.text_field :toppings %>
+        </li>
+        <li>
+          <%= drink.label :rating %>
+          <%= drink.number_field :rating %>
+        </li>
+        
+        <%= drink.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
