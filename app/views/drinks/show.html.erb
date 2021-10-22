@@ -1,60 +1,55 @@
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <div class="card-product">
+    <img src="https://www.digitalassets.starbucks.eu/sites/starbucks-medialibrary/files/assets/614738b8b75ecf12dbe00144983cb4f5_0.jpg" />
+    <div class="card-product-infos">
+      <h2><%= @drink.name %></h2>
+      <p><%= @drink.description %></p>
+      <p><%= @drink.size %></p>
+      <p><%= @drink.ice %></p>
+      <p><%= @drink.flavours %></p>
+      <p><%= @drink.milk %></p>
+      <p><%= @drink.shot %></p>
+      <p><%= @drink.toppings %></p>
+      <p><%= @drink.rating %></p>
+    </div>
+  </div>
+  
 
-<h2><%= @drink.name %></h2>
-<p><%= @drink.description %></p>
-<p><%= @drink.size %></p>
-<p><%= @drink.ice %></p>
-<p><%= @drink.flavours %></p>
-<p><%= @drink.milk %></p>
-<p><%= @drink.shot %></p>
-<p><%= @drink.toppings %></p>
-<p><%= @drink.rating %></p>
+  <ul class="list-group">
+    <% @drink.reviews.each do |review| %>
+      <li class="list-group-item">
+        <%= review.content %>
+        <%= review.rating %>
+        <%= link_to "Remove", 
+                    review_path(review),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %>
+      </li>
+    <% end %>
+  </ul>
 
-<ul class="list-group">
-  <% @drink.reviews.each do |review| %>
-    <li class="list-group-item">
-      <%= review.content %>
-      <%= review.rating %>
-      <%= link_to "Remove", 
-                  review_path(review),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %>
-    </li>
+  <%= link_to 'Back', drinks_path %>
+
+  <% if user_signed_in? %>
+    <%= link_to "Edit",
+        edit_drink_path(@drink) %>
+  <% else %>
+    <%= link_to "Edit", new_user_session_path, data: { confirm: "You must log in" } %>
   <% end %>
-</ul>
 
-<%= link_to 'Back', drinks_path %>
+  <% if user_signed_in? %>
+    <%= link_to 'Leave a review', new_drink_review_path(@drink) %>
+  <% else %>
+    <%= link_to "Leave a review", new_user_session_path, data: { confirm: "You must log in" } %>
+  <% end %>
 
-<%= link_to "Edit",
-            edit_drink_path(@drink) %>
-
-<%= link_to 'Leave a review', new_drink_review_path(@drink) %>
-
-<%= link_to "Delete",
-            drink_path(@drink),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-
-
-
-<% if user_signed_in? %>
-  <%= link_to "Edit",
-      edit_drink_path(@drink) %>
-<% else %>
-  <%= link_to "Edit", new_user_session_path, data: { confirm: "You must log in" } %>
-<% end %>
-
-<% if user_signed_in? %>
-  <%= link_to 'Leave a review', new_drink_review_path(@drink) %>
-<% else %>
-  <%= link_to "Leave a review", new_user_session_path, data: { confirm: "You must log in" } %>
-<% end %>
-
-<% if user_signed_in? %>
-  <%= link_to "Delete",
-              drink_path(@drink),
-              method: :delete,
-              data: { confirm: "Are you sure?" } %>
+  <% if user_signed_in? %>
+    <%= link_to "Delete",
+                drink_path(@drink),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>
   <% else %>
     <%= link_to "Delete", new_user_session_path, data: { confirm: "You must log in" } %>
   <% end %>
+</div>
+
