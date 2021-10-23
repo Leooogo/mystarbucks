@@ -14,18 +14,22 @@
     </div>
   </div>
 
-  <ul class="list-group">
-    <% @drink.reviews.each do |review| %>
-      <li class="list-group-item">
-        <%= review.content %>
-        <%= review.rating %>
-        <%= link_to "Remove", 
-                    review_path(review),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %>
-      </li>
-    <% end %>
-  </ul>
+  <div class="product-review">
+    <h3>
+      <%= pluralize @drink.reviews.size, "review" %>
+    </h3>
+
+    <div id="reviews">
+      <% if @drink.reviews.blank? %>
+        Be the first to leave a review for <%= @drink.name %>
+      <% else %>
+        <% @drink.reviews.each do |review| %>
+          <p><%= review.content %> <%= review.rating %> <%= link_to "Remove", review_path(review), method: :delete, data: { confirm: "Are you sure?" } %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  
 
   <%= link_to 'Back', drinks_path %>
 
