@@ -1,6 +1,12 @@
-<%= simple_form_for [ @drink, @review ] do |drink| %>
-  <%= drink.label :rating %>
-  <%= drink.number_field :rating %>
-  <%= drink.input :content %>
-  <%= drink.submit "Submit review", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <%= simple_form_for [ @drink, @review ] do |drink| %>
+        <%= drink.label :rating %>
+        <%= drink.number_field :rating %>
+        <%= drink.input :content %>
+        <%= drink.submit "Submit review", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
