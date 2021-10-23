@@ -4,16 +4,15 @@
     <div class="card-product-infos">
       <h2><%= @drink.name %></h2>
       <p><%= @drink.description %></p>
-      <p><%= @drink.size %></p>
-      <p><%= @drink.ice %></p>
-      <p><%= @drink.flavours %></p>
-      <p><%= @drink.milk %></p>
+      <p>size: <%= @drink.size %></p>
+      <p>ice: <%= @drink.ice %></p>
+      <p>flavours: <%= @drink.flavours %></p>
+      <p>milk: <%= @drink.milk %></p>
       <p><%= @drink.shot %></p>
-      <p><%= @drink.toppings %></p>
-      <p><%= @drink.rating %></p>
+      <p>toppings: <%= @drink.toppings %></p>
+      <p>rating: <%= @drink.rating %></p>
     </div>
   </div>
-  
 
   <ul class="list-group">
     <% @drink.reviews.each do |review| %>
