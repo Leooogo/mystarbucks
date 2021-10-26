@@ -12,6 +12,7 @@ class DrinksController < ApplicationController
 
   def show
     @drink = Drink.find(params[:id])
+    @review = Drink.new
     # if @drink.reviews.present?
     #   @ratings = Review.where(drink_id: @drink).average(:rating).truncate(2)
     # else

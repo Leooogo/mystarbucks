@@ -8,13 +8,11 @@ class ReviewsController < ApplicationController
     @drink = Drink.find(params[:drink_id])
     @review = Review.new(review_params)
     @review.drink = @drink
-
-    respond_to do |format|
-      if @review.save
-        redirect_to drink_path(@drink, anchor: "review-#{@review.id}")
-      else
-        render 'drinks/show'
-      end
+    if @review.save
+      redirect_to drink_path(@drink)
+    else
+      render 'drinks/show'
+    end
   end
 
   def destroy
