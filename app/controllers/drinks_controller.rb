@@ -3,7 +3,11 @@ class DrinksController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
   
   def index
-    @drinks = Drink.all
+    if params[:query].present?
+      @drinks = Drink.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @drinks = Drink.all
+    end
   end
 
   def show
