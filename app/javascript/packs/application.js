@@ -38,3 +38,5 @@ document.addEventListener('turbolinks:load', () => {
 
   loadDynamicBannerText();
 });
+
+require("@fortawesome/fontawesome-free")
