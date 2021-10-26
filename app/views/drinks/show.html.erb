@@ -4,46 +4,21 @@
     <div class="card-product-infos">
       <h2><%= @drink.name %></h2>
       <p><%= @drink.description %></p>
-      <p>size: <%= @drink.size %></p>
-      <p>ice: <%= @drink.ice %></p>
-      <p>flavours: <%= @drink.flavours %></p>
-      <p>milk: <%= @drink.milk %></p>
-      <p><%= @drink.shot %></p>
-      <p>toppings: <%= @drink.toppings %></p>
-      <p>rating: <%= @drink.rating %></p>
+      <p>Size: <%= @drink.size %></p>
+      <p>Ice: <%= @drink.ice %></p>
+      <p>Flavours: <%= @drink.flavours %></p>
+      <p>Milk: <%= @drink.milk %></p>
+      <p>Shot: <%= @drink.shot %></p>
+      <p>Toppings: <%= @drink.toppings %></p>
+      <p>Rating: <%= render_stars(@drink.rating)%></p>
     </div>
   </div>
-
-  <div class="product-review">
-    <h3>
-      <%= pluralize @drink.reviews.size, "review" %>
-    </h3>
-
-    <div id="reviews">
-      <% if @drink.reviews.blank? %>
-        Be the first to leave a review for <%= @drink.name %>
-      <% else %>
-        <% @drink.reviews.each do |review| %>
-          <p><%= review.content %> <%= review.rating %> <%= link_to "Remove", review_path(review), method: :delete, data: { confirm: "Are you sure?" } %></p>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-  
-
-  <%= link_to 'Back', drinks_path %>
 
   <% if user_signed_in? %>
     <%= link_to "Edit",
         edit_drink_path(@drink) %>
   <% else %>
     <%= link_to "Edit", new_user_session_path, data: { confirm: "You must log in" } %>
-  <% end %>
-
-  <% if user_signed_in? %>
-    <%= link_to 'Leave a review', new_drink_review_path(@drink) %>
-  <% else %>
-    <%= link_to "Leave a review", new_user_session_path, data: { confirm: "You must log in" } %>
   <% end %>
 
   <% if user_signed_in? %>
@@ -54,5 +29,29 @@
   <% else %>
     <%= link_to "Delete", new_user_session_path, data: { confirm: "You must log in" } %>
   <% end %>
+
+  <div class="product-review">
+    <h3>
+      <%= pluralize @drink.reviews.size, "review" %>
+    </h3>
+
+    <div class="reviews">
+      <% if @drink.reviews.blank? %>
+        Be the first to leave a review for <%= @drink.name %>
+      <% else %>
+        <% @drink.reviews.each do |review| %>
+          <p><%= review.content %> <%= render_stars(review.rating)%> <%= link_to "Remove", review_path(review), method: :delete, data: { confirm: "Are you sure?" } %></p>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="review-btn">
+      <% if user_signed_in? %>
+        <%= link_to 'Leave a review', new_drink_review_path(@drink), class: "btn btn-flat" %>
+      <% else %>
+        <%= link_to "Leave a review", new_user_session_path, data: { confirm: "You must log in" }, class: "btn btn-flat" %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
