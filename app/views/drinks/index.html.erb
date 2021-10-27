@@ -60,11 +60,9 @@
         </div>
       </div>
 
-
-
       <ul>
         <% @drinks.each do |drink| %>
-          <li><%= link_to drink.name, drink_path(drink) %></li>
+         <ol><%= link_to drink.name, drink_path(drink) %></ol> 
         <% end %>
       </ul>
 
