@@ -2,12 +2,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  justify-content: center;
+  margin: 10px auto 50px;
 }
 
 .card-category {
   background-size: cover;
   background-position: center;
-  width: 180px;
+  width: 100%;
   height: 180px;
   display: flex;
   justify-content: center;
@@ -30,8 +32,8 @@
 }
 
 .card-product img {
-  height: 100%;
-  width: 300px;
+  height: 300px;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -54,3 +56,14 @@
   padding: 100px;
 }
 
+@media(max-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
