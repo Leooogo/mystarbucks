@@ -1,19 +1,24 @@
-.tabs-underlined {
+.nav-tabs {
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  margin-bottom: 50px;
+  border: none;
 }
 
-.tabs-underlined .tab-underlined {
-  color: #678758;
+.nav-tabs .nav-link {
+  color: #678758 !important;
   padding: 8px;
   margin: 8px 16px;
   opacity: .4;
   cursor: pointer;
   text-decoration: none;
-  border-bottom: 4px solid transparent;
+  line-height: 1.5em;
+  display: inline-block;
+  border: none;
 }
 
-.tabs-underlined .tab-underlined.active {
+.nav-tabs .nav-link.active {
   opacity: 1;
   border-bottom: 3px solid #678758;
 }

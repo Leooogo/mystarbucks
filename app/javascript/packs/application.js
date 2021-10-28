@@ -26,7 +26,6 @@ require("channels")
 import "bootstrap";
 import { loadDynamicBannerText } from "../components/banner";
 
-
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
