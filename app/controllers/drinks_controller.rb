@@ -26,9 +26,14 @@ class DrinksController < ApplicationController
 
   def create
     @drink = Drink.new(drink_params)
-    @drink.save
 
-    redirect_to drink_path(@drink)
+    if @drink.save
+      flash[:notice] = "Item was saved!"
+      redirect_to @drink
+    else
+      flash.now[:alert] = "ERROR. ERROR."
+      render :new
+    end
   end
 
   def edit

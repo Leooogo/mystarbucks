@@ -1,7 +1,7 @@
 class Drink < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_one_attached :photo
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :favorite_drinks
   has_many :favorited_by, through: :favorite_drinks, source: :user
 
