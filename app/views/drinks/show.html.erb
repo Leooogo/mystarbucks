@@ -5,11 +5,25 @@
       <h2><%= @drink.name %></h2>
       <p><%= @drink.description %></p>
       <p>Size: <%= @drink.size %></p>
-      <p>Ice: <%= @drink.ice %></p>
+
+      <% unless @drink.ice.nil? %>
+        <p>Ice: <%= @drink.ice %></p>
+      <% end %>
+
       <p>Flavours: <%= @drink.flavours %></p>
-      <p>Milk: <%= @drink.milk %></p>
-      <p>Shot: <%= @drink.shot %></p>
-      <p>Toppings: <%= @drink.toppings %></p>
+
+      <% unless @drink.milk.nil? %>
+        <p>Milk: <%= @drink.milk %></p>
+      <% end %>
+      
+      <% unless @drink.shot.nil? %>
+        <p>Shot: <%= @drink.shot %></p>
+      <% end %>
+
+      <% unless @drink.toppings.nil? %>
+        <p>Toppings: <%= @drink.toppings %></p>
+      <% end %>
+      
       <p>Rating: <%= render_stars(@drink.rating)%></p>
     </div>
   </div>
