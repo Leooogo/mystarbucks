@@ -13,21 +13,27 @@ User.destroy_all
 
 puts "Creating a user..."
 user = User.new
-user.email = "minjeongg24@gmail.com"
+user.email = "leo.j.developer@gmail.com"
 user.password = "Wkddhkdrnf@2"
 user.password_confirmation = 'Wkddhkdrnf@2'
 user.save!
 
-# size_attributes = [
-#   { name: "Short" },
-#   { name: "Tall" },
-#   { name: "Grande" },
-#   { name: "Venti" }
+# drink_attributes = [
+#   { size: "Short" },
+#   { size: "Tall" },
+#   { size: "Grande" },
+#   { size: "Venti" }
 # ]
 
-# size_attributes.each do |size_attribute|
-#   size = Size.create!(size_attribute)
-#   puts "Created #{size.name}"
+# drink_attributes.each do |drink_attribute|
+#   drink = Drink.create!(drink_attribute)
+#   puts "Created #{drink.size}"
+# end
+
+# drink_attributes.each do |drink_attribute|
+#   drink = Drink.new(drink_attribute)
+#   drink.save!
 # end
 
 puts "Created 1 user"
+# puts "Created 4 drink size"
