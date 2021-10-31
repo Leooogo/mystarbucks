@@ -10,6 +10,7 @@
 
 puts "Cleaning database..."
 User.destroy_all
+Drink.destroy_all
 
 puts "Creating a user..."
 user = User.new
@@ -18,22 +19,23 @@ user.password = "Wkddhkdrnf@2"
 user.password_confirmation = 'Wkddhkdrnf@2'
 user.save!
 
-# drink_attributes = [
-#   { size: "Short" },
-#   { size: "Tall" },
-#   { size: "Grande" },
-#   { size: "Venti" }
-# ]
+drink_attributes = [
+  { name: "Iced Cappuccino", size: "Tall", ice: "Regular", flavours: "2 pumps Vanilla Syrup", shot: "2 Shots", rating: "3" },
+  { name: "Cappuccino", size: "Tall", flavours: "3 pumps Cinnamon Dolce Syrup", milk: "Whole Milk", shot: "2 Shots", toppings: "Chocolate Powder", rating: "5" },
+  { name: "Iced White Chocolate Mocha", size: "Tall", ice: "Regular", flavours: "3 pumps White chocolate Mocha Sauce", milk: "Coconut", shot: "2 Shots", toppings: "No Whipped Cream", rating: "5" },
+  { name: "Cookies & Cream Frappuccino", size: "Tall", ice: "Regular", flavours: "3 pumps White chocolate Mocha Sauce", milk: "Whole Milk", toppings: "No Whipped Cream", rating: "5" },
+  { name: "Chai Latte", size: "Tall", flavours: "3 pumps White chocolate Mocha Sauce", milk: "Skimmed Milk", shot: "1 Shot", rating: "5" }
+]
 
 # drink_attributes.each do |drink_attribute|
 #   drink = Drink.create!(drink_attribute)
 #   puts "Created #{drink.size}"
 # end
 
-# drink_attributes.each do |drink_attribute|
-#   drink = Drink.new(drink_attribute)
-#   drink.save!
-# end
+drink_attributes.each do |drink_attribute|
+  drink = Drink.new(drink_attribute)
+  drink.save!
+end
 
 puts "Created 1 user"
-# puts "Created 4 drink size"
+puts "Created 5 drink"
