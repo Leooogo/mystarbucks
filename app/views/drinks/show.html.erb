@@ -1,6 +1,8 @@
 <div class="container">
   <div class="card-product">
-    <img src="https://www.digitalassets.starbucks.eu/sites/starbucks-medialibrary/files/assets/614738b8b75ecf12dbe00144983cb4f5_0.jpg" />
+    <%= image_tag url_for(controller: 'drinks', 
+                      action: 'show', 
+                      id: @drink.id) %>
     <div class="card-product-infos">
       <h2><%= @drink.name %></h2>
       <p><%= @drink.description %></p>

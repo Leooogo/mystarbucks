@@ -34,6 +34,13 @@ class DrinksController < ApplicationController
       flash.now[:alert] = "ERROR. ERROR."
       render :new
     end
+
+    if params[:drink].present?
+      file = params[:drink][:file]
+      File.open(Rails.root.join('app', 'assets', 'images', file.original_filename), 'wb') do |f|
+        f.write(file.read)
+      end
+    end
   end
 
   def edit
@@ -70,7 +77,7 @@ class DrinksController < ApplicationController
   private
 
   def drink_params
-    params.require(:drink).permit(:name, :description, :size, :ice, :flavours, :milk, :shot, :toppings, :rating)
+    params.require(:drink).permit(:name, :description, :size, :ice, :flavours, :milk, :shot, :toppings, :file, :rating)
   end
 
   def set_drink
