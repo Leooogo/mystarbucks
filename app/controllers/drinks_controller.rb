@@ -62,6 +62,7 @@ class DrinksController < ApplicationController
   end
 
   def favorite
+    @drink = Drink.find(params[:id])
     type = params[:type]
     if type == "favorite"
       current_user.favorites << @drink
