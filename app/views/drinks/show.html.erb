@@ -29,7 +29,7 @@
       <p>Rating: <%= render_stars(@drink.rating)%></p>
     </div>
 
-    <% if current_user.favorites.exists?(id: @drink.id) %>
+    <!-- <% if current_user.favorites.exists?(id: @drink.id) %>
       <%= link_to favorite_drink_path(@drink, type: 'unfavorite'), method: :put do %>
         <ul class="list-inline product-controls">
           <li><i class="fa fa-heart"></i></li>
@@ -41,7 +41,12 @@
           <li><i class="fa fa-heart"></i></li>
         </ul>
       <% end %>
-    <% end %>
+    <% end %> -->
+
+    <% if current_user %>
+  <%= link_to "favorite",   favorite_drink_path(@drink, type: "favorite"), method: :put %>
+  <%= link_to "unfavorite", favorite_drink_path(@drink, type: "unfavorite"), method: :put %>
+<% end %>
   </div>
 
   <% if user_signed_in? %>
