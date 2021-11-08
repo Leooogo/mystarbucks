@@ -20,6 +20,14 @@
 
     <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
       <h3>You have favorited 0 drinks in Starbucks</h3>
+      <% @user.favorites do |favorite| %>
+        <%= render partial: @user.favorites %>
+      <% end %>
+
+      <%= form_for(current_user.favorites.new, remote: true) do |f| %>
+<%= hidden_field_tag :user_id, @user.id %>
+<%= f.submit "Favorite" %>
+<% end %>
     </div>
   </div>
 </div>

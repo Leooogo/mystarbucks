@@ -66,12 +66,12 @@ class DrinksController < ApplicationController
     type = params[:type]
     if type == "favorite"
       current_user.favorites << @drink
-      redirect_to :back, notice: 'You favorited #{@drink.name}'
-    elseif type == 'unfavorite'
+      redirect_back fallback_location: root_path, notice: 'You favorited #{@drink.name}'
+    elsif type == 'unfavorite'
       current_user.favorites.delete(@drink)
-      redirect_to :back, notice: 'Unfavorited #{@drink.name}'
+      redirect_back fallback_location: root_path, notice: 'Unfavorited #{@drink.name}'
     else
-      redirect_to :back, notice: 'Nothing happened.'
+      redirect_back fallback_location: root_path, notice: 'Nothing happened.'
     end
   end
 

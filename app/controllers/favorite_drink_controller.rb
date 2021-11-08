@@ -1,0 +1,2 @@
+class FavoriteDrinkController < ApplicationController
+end
