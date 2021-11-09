@@ -16,6 +16,14 @@
   </div>
 
   <h2 class="text-center">Popular</h2>
+    <% @drinks.each do |drink| %>
+      <tr>
+        <td><%= link_to drink.name, drink_path(drink.id) %></td>
+        <td><%= drink.reviews.average(:rating) %></td>
+      </tr>
+    <% end %>
+
+
     <div class="cards">
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../assets/sorin.jpg)">
         Cappuccino
