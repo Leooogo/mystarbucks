@@ -21,6 +21,10 @@ class ReviewsController < ApplicationController
     redirect_to drink_path(@review.drink)
   end
 
+  def edit
+    @review = @drink.reviews.find(params[:id])
+  end
+
   private
 
   def review_params
