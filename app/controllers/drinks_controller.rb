@@ -3,6 +3,22 @@ class DrinksController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
   
   def index
+    @drinks = Drink.joins(:reviews)
+                .order('reviews.rating DESC')
+
+    if params[:search]
+      @drinks = Drink
+        .search(params[:search])
+        .order(:created_at => :desc)
+    else
+      @drinks = Drink
+        .joins('LEFT JOIN reviews ON drinks.id = reviews.drink_id')
+        .group('drinks.id')
+        .order('AVG(reviews.rating) DESC NULLS LAST')
+    end
+
+    @drinks = Drink.find_by(params[:drink_id])
+
     if params[:query].present?
       @drinks = Drink.where("name ILIKE ?", "%#{params[:query]}%")
     else
@@ -13,11 +29,13 @@ class DrinksController < ApplicationController
   def show
     @drink = Drink.find(params[:id])
     @review = Drink.new
-    # if @drink.reviews.present?
-    #   @ratings = Review.where(drink_id: @drink).average(:rating).truncate(2)
-    # else
-    #   render 'show'
-    # end
+
+    @drink = Drink.find_by_id(params[:id])
+    if @drink.reviews.present?
+      @ratings = Review.where(drink_id: @drink).average(:rating).truncate(2)
+    else
+      render 'show'
+    end
   end
 
   def new
@@ -73,6 +91,11 @@ class DrinksController < ApplicationController
     else
       redirect_back fallback_location: root_path, notice: 'Nothing happened.'
     end
+  end
+
+  def top_drinks
+    @top_drinks = Drink.limit(3)
+    scope :by_rating, :joins => :reviews, :group => "drinks.id", :order => "AVG(reviews.rating) DESC"
   end
 
   private
