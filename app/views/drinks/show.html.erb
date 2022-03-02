@@ -38,8 +38,7 @@
   </div>
 
   <% if user_signed_in? %>
-    <%= link_to "Edit",
-        edit_drink_path(@drink) %>
+    <%= link_to "Edit", edit_drink_path(@drink) %>
   <% else %>
     <%= link_to "Edit", new_user_session_path, data: { confirm: "You must log in" } %>
   <% end %>
@@ -70,34 +69,41 @@
 
     <button type="button" class="btn btn-flat" data-toggle="modal" data-target="#reviewModal">Leave a review</button>
 
-    <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="reviewModalLabel">Leave a review</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <%= simple_form_for [ @drink, @review ] do |f| %>
-              <%= f.label :rating %>
-              <%= f.number_field :rating %>
-              <%= f.input :content %>
-              <%= f.submit "Submit review", class: "btn btn-flat" %>
-            <% end %>
+    <% if user_signed_in? %>
+      <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="reviewModalLabel">Leave a review</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= simple_form_for [ @drink, @review ] do |f| %>
+                <%= f.label :rating %>
+                <%= f.number_field :rating %>
+                <%= f.input :content %>
+                <%= f.submit "Submit review", class: "btn btn-flat" %>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-    </div>    
-
-    <!-- <div class="review-btn">
-      <% if user_signed_in? %>
-        <%= link_to 'Leave a review', new_drink_review_path(@drink), class: "btn btn-flat" %>
-      <% else %>
-        <%= link_to "Leave a review", new_user_session_path, data: { confirm: "You must log in" }, class: "btn btn-flat" %>
-      <% end %>
-    </div> -->
+      </div>    
+    <% else %>
+      <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="reviewModalLabel">You must <%= link_to "Login", new_user_session_path %></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>    
+    <% end %>
   </div>
 </div>
 
